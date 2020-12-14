@@ -2,7 +2,7 @@ package boardgame;
 
 public class Peca {
 	protected Posicao posicao;
-	protected Tabuleiro tabuleiro;
+	private Tabuleiro tabuleiro;
 
 	public Peca(Tabuleiro tabuleiro) {
 		this.tabuleiro = tabuleiro;
@@ -12,7 +12,5 @@ public class Peca {
 	protected Tabuleiro getTabuleiro() {
 		return tabuleiro;
 	}
-
-	
 
 }
