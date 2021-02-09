@@ -17,8 +17,8 @@ public class PartidaXadrez {
 
 	public PecaDeXadrez[][] getPecas() {
 		PecaDeXadrez[][] mat = new PecaDeXadrez[Tabuleiro.getLinhas()][Tabuleiro.getColunas()];
-		for (int i = 0; i < Tabuleiro.getLinhas(); i++) {
-			for (int j = 0; j < Tabuleiro.getColunas(); j++) {
+		for (int j = 0; j < Tabuleiro.getColunas(); j++) {
+			for (int i = 0; i < Tabuleiro.getLinhas(); i++) {
 				mat[i][j] = (PecaDeXadrez) tabuleiro.peca(i, j);
 			}
 
@@ -30,6 +30,7 @@ public class PartidaXadrez {
 		Posicao origem = posicaoOrigem.toPosicao();
 		Posicao destino = posicaoDestino.toPosicao();
 		validacaoposicao(origem);
+		validacaoposicaodestino(origem, destino);
 		Peca capturaPeca = movimento(origem, destino);
 
 		return (PecaDeXadrez) capturaPeca;
@@ -48,6 +49,12 @@ public class PartidaXadrez {
 		}
 		if (tabuleiro.peca(posicao).podeMover()) {
 			throw new XadrezExcessao("não há movimentos possíveis para a peça escolhida");
+		}
+	}
+
+	private void validacaoposicaodestino(Posicao origem, Posicao destino) {
+		if (!tabuleiro.peca(origem).movimentosPossivel(destino)) {
+			throw new XadrezExcessao("Ha peça escolhida não pode se mover para o alvo");
 		}
 	}
 

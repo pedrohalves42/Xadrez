@@ -1,6 +1,7 @@
 package xadrez;
 
 import boardgame.Peca;
+import boardgame.Posicao;
 import boardgame.Tabuleiro;
 
 public abstract class PecaDeXadrez extends Peca {
@@ -16,4 +17,7 @@ public abstract class PecaDeXadrez extends Peca {
 		return color;
 	}
 
+	protected boolean haUmaPecaOponente(Posicao posicao) {
+		
+	}
 }
