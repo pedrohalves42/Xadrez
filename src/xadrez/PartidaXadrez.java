@@ -53,7 +53,7 @@ public class PartidaXadrez {
 		if (!tabuleiro.haUmaPeca(posicao)) {
 			throw new XadrezExcessao("não ha nenhuma peça no local!! ");
 		}
-		if (tabuleiro.peca(posicao).podeMover()) {
+		if (!tabuleiro.peca(posicao).podeMover()) {
 			throw new XadrezExcessao("não há movimentos possíveis para a peça escolhida");
 		}
 	}

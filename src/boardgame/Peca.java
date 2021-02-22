@@ -1,4 +1,4 @@
-package boardgame;
+		package boardgame;
 
 public abstract class Peca {
 	protected Posicao posicao;

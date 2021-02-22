@@ -17,7 +17,5 @@ public abstract class PecaDeXadrez extends Peca {
 		return color;
 	}
 
-	protected boolean haUmaPecaOponente(Posicao posicao) {
-		
-	}
+
 }
