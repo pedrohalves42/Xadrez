@@ -30,6 +30,7 @@ public class PartidaXadrez {
 		Posicao posicao = posicaoOrigem.toPosicao();
 		validacaoposicao(posicao);
 		return tabuleiro.peca(posicao).movimentosPossiveis();
+		
 	}
 
 	public PecaDeXadrez perfomaceMovimentoXadrez(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino) {
