@@ -1,5 +1,7 @@
 package xadrez;
 
+import java.awt.Color;
+
 import boardgame.Peca;
 import boardgame.Posicao;
 import boardgame.Tabuleiro;
@@ -9,9 +11,21 @@ import pecasXadrez.Torre;
 public class PartidaXadrez {
 
 	private Tabuleiro tabuleiro;
+	private Color jogadorAtual;
+	private int turno;
+
+	public Color getJogadorAtual() {
+		return jogadorAtual;
+	}
+
+	public int getTurno() {
+		return turno;
+	}
 
 	public PartidaXadrez() {
 		tabuleiro = new Tabuleiro(8, 8);
+		turno = 1;
+		jogadorAtual = Color.WHITE;
 		iniciaJogo();
 	}
 
@@ -30,7 +44,7 @@ public class PartidaXadrez {
 		Posicao posicao = posicaoOrigem.toPosicao();
 		validacaoposicao(posicao);
 		return tabuleiro.peca(posicao).movimentosPossiveis();
-		
+
 	}
 
 	public PecaDeXadrez perfomaceMovimentoXadrez(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino) {
@@ -39,7 +53,7 @@ public class PartidaXadrez {
 		validacaoposicao(origem);
 		validacaoposicaodestino(origem, destino);
 		Peca capturaPeca = movimento(origem, destino);
-
+		proxTurno();
 		return (PecaDeXadrez) capturaPeca;
 	}
 
@@ -54,6 +68,9 @@ public class PartidaXadrez {
 		if (!tabuleiro.haUmaPeca(posicao)) {
 			throw new XadrezExcessao("não ha nenhuma peça no local!! ");
 		}
+		if(jogadorAtual != ((PecaDeXadrez)tabuleiro.peca(posicao).getColor(){
+			
+		}
 		if (!tabuleiro.peca(posicao).podeMover()) {
 			throw new XadrezExcessao("não há movimentos possíveis para a peça escolhida");
 		}
@@ -67,6 +84,11 @@ public class PartidaXadrez {
 
 	private void coloqueNovaPeca(char coluna, int linha, PecaDeXadrez peca) {
 		tabuleiro.posicaoPeca(peca, new PosicaoXadrez(coluna, linha).toPosicao());
+	}
+
+	private void proxTurno() {
+		turno++;
+		jogadorAtual = (jogadorAtual == Color.WHITE) ? Color.BLACK : Color.WHITE;
 	}
 
 	private void iniciaJogo() {

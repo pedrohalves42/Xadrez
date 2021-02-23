@@ -1,5 +1,7 @@
 		package boardgame;
 
+import java.awt.Color;
+
 public abstract class Peca {
 	protected Posicao posicao;
 	private Tabuleiro tabuleiro;
@@ -30,4 +32,6 @@ public abstract class Peca {
 		}
 		return false;
 	}
+
+	public abstract Color getColor();
 }
